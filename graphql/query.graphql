@@ -1,9 +1,10 @@
-type Luis {
+type userData {
+  id: Int!
   name: String!
   age: Int!
-  weight: Int!
 }
 
 type Query {
-  person: Luis
+  crowd: [userData!]
+  person(id: Int!): userData
 }
