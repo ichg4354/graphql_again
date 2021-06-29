@@ -1,10 +1,14 @@
-type userData {
+type Person {
   id: Int!
   name: String!
   age: Int!
 }
 
 type Query {
-  crowd: [userData!]
-  person(id: Int!): userData
+  crowd: [Person]!
+  person(id: Int!): Person
+}
+
+type Mutation {
+  addUser(name: String!, age: Int!): Person!
 }

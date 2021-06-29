@@ -1,9 +1,12 @@
-import { userData, getPersonById } from "./db";
+import { getUserData, getUserById, addUser } from "./db";
 
 const resolvers = {
   Query: {
-    crowd: () => userData,
-    person: (_, args) => getPersonById(args.id),
+    crowd: () => getUserData(),
+    person: (_, args) => getUserById(args.id),
+  },
+  Mutation: {
+    addUser: (_, args) => addUser(args.name, args.age),
   },
 };
 

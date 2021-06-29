@@ -41,9 +41,19 @@ export const userData = [
   },
 ];
 
-export const getPersonById = (id) => {
-  const value = userData.filter((each) => each.id == id);
-  return value[0];
+export const getUserData = () => userData;
+
+export const getUserById = (id) => {
+  const foundValue = userData.filter((each) => each.id == id);
+  return foundValue[0];
 };
 
-getPersonById(3);
+export const addUser = (name, age) => {
+  const newUser = {
+    id: userData.length + 1,
+    name: name,
+    age: age,
+  };
+  userData.push(newUser);
+  return newUser;
+};
