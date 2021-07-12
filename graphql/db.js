@@ -13,15 +13,12 @@ export const getData = async (limit, rating) => {
   let REQUEST_URL = API_URL;
   REQUEST_URL += "list_movies.json";
   if (limit > 0) {
-    console.log(limit);
     REQUEST_URL += `?limit=${limit}`;
   }
   if (rating > 0) {
     REQUEST_URL += `&minimum_rating=${rating}`;
-    console.log(REQUEST_URL);
   }
   const { movies } = await axiosGet(REQUEST_URL);
-  console.log(movies);
   return movies;
 };
 
@@ -31,8 +28,6 @@ export const getMovieById = async (id) => {
   if (id) {
     REQUEST_URL += `?movie_id=${id}`;
   }
-  console.log(REQUEST_URL);
   const data = await axiosGet(REQUEST_URL);
-  console.log(data.movie);
   return data.movie;
 };
